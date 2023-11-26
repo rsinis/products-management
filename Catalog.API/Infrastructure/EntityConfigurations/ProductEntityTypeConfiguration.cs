@@ -10,32 +10,43 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.ToTable("Products");
 
-        builder.Property(cb => cb.Name)
+        builder.Property(e => e.Name)
             .IsRequired()
             .HasMaxLength(50);
 
-        builder.Property(cb => cb.Description)
+        builder.Property(e => e.Description)
             .IsRequired();
 
-        builder.Property(cb => cb.Price)
+        builder.Property(e => e.Price)
             .IsRequired()
             .HasColumnType("decimal(18,2)");
 
-        builder.Property(cb => cb.ImageUrl)
+        builder.Property(e => e.ImageUrl)
             .IsRequired()
             .HasMaxLength(250);
 
-        builder.Property(cb => cb.InStock)
+        builder.Property(e => e.InStock)
             .HasDefaultValue(true);
 
-        builder.HasOne(ci => ci.Category)
+        builder.HasOne(e => e.Category)
             .WithMany()
-            .HasForeignKey(ci => ci.CategoryId);
+            .HasForeignKey(e => e.CategoryId);
 
-        builder.HasMany(ci => ci.Reviews)
-            .WithOne()
-            .HasForeignKey(ci => ci.ProductId);
+        builder.HasMany(e => e.ProductLocations)
+            .WithOne(e => e.Product).IsRequired(false)
+            .HasForeignKey(e => e.ProductId)
+            .HasPrincipalKey(e => e.Id);
 
-        builder.HasIndex(ci => ci.Name);
+        builder.HasMany(e => e.Reviews)
+            .WithOne(e => e.Product).IsRequired(false)
+            .HasForeignKey(e => e.ProductId)
+            .HasPrincipalKey(e => e.Id);
+
+        builder.HasIndex(e => e.Name);
+
+        builder.Property(e => e.IsDeleted)
+            .HasDefaultValue(false);
+
+        builder.HasQueryFilter(e => e.IsDeleted == false);
     }
 }

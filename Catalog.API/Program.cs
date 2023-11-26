@@ -1,19 +1,23 @@
-using Catalog.API.Infrastructure;
-using Microsoft.EntityFrameworkCore;
+using Catalog.API.Endpoints;
+using Catalog.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<CatalogContext>(options =>
-{
-    options.UseSqlite(builder.Configuration.GetConnectionString("CatalogDB"));
-});
+builder.AddDefaultOpenApi();
+builder.AddApplicationServices();
+
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
+app.UseDefaultOpenApi();
+
+app.MapGroup("/api/v1/catalog")
+    .WithTags("Catalog API")
+    .MapCatalogEndpoint();
 
 app.Run();

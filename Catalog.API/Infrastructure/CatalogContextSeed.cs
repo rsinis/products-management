@@ -17,28 +17,28 @@ public class CatalogContextSeed
     private static void SeedLocations(ModelBuilder builder)
     {
         builder.Entity<Location>().HasData(
-            new Location() { Id = 1, Name = "Location A", Address = "AAA H8A 0H1" },
-            new Location() { Id = 2, Name = "Location B", Address = "BBB H8B 0H1" },
-            new Location() { Id = 3, Name = "Location C", Address = "CCC H8C 0H1" },
-            new Location() { Id = 4, Name = "Location D", Address = "DDD H8D 0H1" }
+            new Location() { Id = 1, Name = "Location A", Address = "AAA H8A 0H1", DateCreation = new DateTime(2023, 11, 25) },
+            new Location() { Id = 2, Name = "Location B", Address = "BBB H8B 0H1", DateCreation = new DateTime(2023, 11, 25) },
+            new Location() { Id = 3, Name = "Location C", Address = "CCC H8C 0H1", DateCreation = new DateTime(2023, 11, 25) },
+            new Location() { Id = 4, Name = "Location D", Address = "DDD H8D 0H1", DateCreation = new DateTime(2023, 11, 25) }
         );
     }
 
     private static void SeedCategories(ModelBuilder builder)
     {
         builder.Entity<Category>().HasData(
-            new Category() { Id = 1, Name = "Category Sport" },
-            new Category() { Id = 2, Name = "Category Casual" },
-            new Category() { Id = 3, Name = "Category Formal" }
+            new Category() { Id = 1, Name = "Category Sport", DateCreation = new DateTime(2023, 11, 25) },
+            new Category() { Id = 2, Name = "Category Casual", DateCreation = new DateTime(2023, 11, 25) },
+            new Category() { Id = 3, Name = "Category Formal", DateCreation = new DateTime(2023, 11, 25) }
         );
     }
 
     private static void SeedProducts(ModelBuilder builder)
     {
         builder.Entity<Product>().HasData(
-            new Product() { Id = 1, Name = "Product 1", Price = 9.99m, ImageUrl = "path/to/product1.jpg", InStock = true, CategoryId = 1, Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Placeat amet ex aliquid quia repellat excepturi qui quos dignissimos necessitatibus dolore facilis obcaecati sunt suscipit sit esse harum ut, minima iusto." },
-            new Product() { Id = 2, Name = "Product 2", Price = 7.99m, ImageUrl = "path/to/product2.jpg", InStock = false, CategoryId = 2, Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?" },
-            new Product() { Id = 3, Name = "Product 3", Price = 5.99m, ImageUrl = "path/to/product3.jpg", InStock = true, CategoryId = 3, Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi at veniam, inventore, architecto autem, rerum repellat perspiciatis voluptates pariatur expedita assumenda omnis aliquam quasi quia. Beatae totam maxime doloremque." }
+            new Product() { Id = 1, Name = "Product 1", Price = 9.99m, ImageUrl = "path/to/product1.jpg", InStock = true, CategoryId = 1, IsDeleted = false, DateCreation = new DateTime(2023, 11, 25), Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Placeat amet ex aliquid quia repellat excepturi qui quos dignissimos necessitatibus dolore facilis obcaecati sunt suscipit sit esse harum ut, minima iusto." },
+            new Product() { Id = 2, Name = "Product 2", Price = 7.99m, ImageUrl = "path/to/product2.jpg", InStock = false, CategoryId = 2, IsDeleted = false, DateCreation = new DateTime(2023, 11, 25), Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?" },
+            new Product() { Id = 3, Name = "Product 3", Price = 5.99m, ImageUrl = "path/to/product3.jpg", InStock = true, CategoryId = 3, IsDeleted = true, DeletedAt = new DateTime(2023, 11, 25), DateCreation = new DateTime(2023, 11, 25), Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi at veniam, inventore, architecto autem, rerum repellat perspiciatis voluptates pariatur expedita assumenda omnis aliquam quasi quia. Beatae totam maxime doloremque." }
         );
     }
     private static void SeedProductLocations(ModelBuilder builder)
