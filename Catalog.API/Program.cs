@@ -1,5 +1,6 @@
 using Catalog.API.Endpoints;
 using Catalog.API.Extensions;
+using FluentValidation;
 using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.AddDefaultOpenApi();
 builder.AddApplicationServices();
 
 builder.Services.AddProblemDetails();
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 

@@ -1,0 +1,20 @@
+.nav-block {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 28px;
+    margin-bottom: 4px;
+
+    .nav-icon {
+        user-select: none;
+        margin-right: .8em;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .req-object {
+        margin-left: 1em;
+    }
+}

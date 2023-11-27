@@ -35,7 +35,7 @@ export class CatalogService {
   }
 
   getDeletedProducts() {
-    return this.http.get<Product[]>(`${this.catalogUrl}/products-deleted`);
+    return this.http.get<Product[]>(`${this.catalogUrl}/products/deleted`);
   }
 
   getProductById(id: number) {
