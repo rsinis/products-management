@@ -15,11 +15,11 @@ public static class CatalogEndpoints
 
     public static IEndpointRouteBuilder MapCatalogEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapPost("/items", CreateProduct)
+        app.MapPost("/products", CreateProduct)
             .WithName("CreateProduct")
             .WithTags(Tag);
 
-        app.MapPut("/items", UpdateProduct)
+        app.MapPut("/products", UpdateProduct)
             .WithName("UpdateProduct")
             .WithTags(Tag);
 
