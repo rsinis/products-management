@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 import { Product } from '../shared/models/product';
 import { CatalogService } from '../shared/services/catalog.service';
 import { FabComponent } from "../shared/components/fab/fab.component";
-import { FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'app-product-details',
