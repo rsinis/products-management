@@ -1,4 +1,8 @@
 <div class="container py-5 mb-3">
+    <div class="nav-block">
+        <i class="fas fa-chevron-left nav-icon" (click)="onBack()"></i>
+        <h6>Product Details</h6>
+    </div>
     <div class="row" *ngIf="product">
         <div class="col-6">
             <img src="{{product.imageUrl}}" alt="{{product.name}}" class="w-100">

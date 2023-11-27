@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Catalog.API.Infrastructure.Migrations
 {
     [DbContext(typeof(CatalogContext))]
-    [Migration("20231126034025_AddedSoftDelete")]
-    partial class AddedSoftDelete
+    [Migration("20231127122458_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,19 +44,19 @@ namespace Catalog.API.Infrastructure.Migrations
                         {
                             Id = 1,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Category Sport"
+                            Name = "WildRunner"
                         },
                         new
                         {
                             Id = 2,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Category Casual"
+                            Name = "Daybird"
                         },
                         new
                         {
                             Id = 3,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Category Formal"
+                            Name = "Raptor Elite"
                         });
                 });
 
@@ -176,36 +176,146 @@ namespace Catalog.API.Infrastructure.Migrations
                             CategoryId = 1,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Placeat amet ex aliquid quia repellat excepturi qui quos dignissimos necessitatibus dolore facilis obcaecati sunt suscipit sit esse harum ut, minima iusto.",
-                            ImageUrl = "path/to/product1.jpg",
+                            ImageUrl = "http://localhost:5299/content/images/products/3.webp",
                             InStock = true,
                             IsDeleted = false,
-                            Name = "Product 1",
-                            Price = 9.99m
+                            Name = "Alpine Fusion Goggles",
+                            Price = 79.99m
                         },
                         new
                         {
                             Id = 2,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
-                            ImageUrl = "path/to/product2.jpg",
+                            ImageUrl = "http://localhost:5299/content/images/products/11.webp",
                             InStock = false,
                             IsDeleted = false,
-                            Name = "Product 2",
-                            Price = 7.99m
+                            Name = "Vertical Journey Climbing Shoes",
+                            Price = 129.99m
                         },
                         new
                         {
                             Id = 3,
+                            CategoryId = 1,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTimeOffset(new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)),
+                            Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi at veniam, inventore, architecto autem, rerum repellat perspiciatis voluptates pariatur expedita assumenda omnis aliquam quasi quia. Beatae totam maxime doloremque.",
+                            ImageUrl = "http://localhost:5299/content/images/products/24.webp",
+                            InStock = true,
+                            IsDeleted = true,
+                            Name = "Ridgevent Stealth Hiking Backpack",
+                            Price = 69.99m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 2,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Placeat amet ex aliquid quia repellat excepturi qui quos dignissimos necessitatibus dolore facilis obcaecati sunt suscipit sit esse harum ut, minima iusto.",
+                            ImageUrl = "http://localhost:5299/content/images/products/25.webp",
+                            InStock = true,
+                            IsDeleted = false,
+                            Name = "Stealth Lite Bike Helmet",
+                            Price = 79.99m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 2,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
+                            ImageUrl = "http://localhost:5299/content/images/products/39.webp",
+                            InStock = false,
+                            IsDeleted = false,
+                            Name = "Midnight Blue Goggles",
+                            Price = 89.99m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 2,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTimeOffset(new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)),
+                            Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi at veniam, inventore, architecto autem, rerum repellat perspiciatis voluptates pariatur expedita assumenda omnis aliquam quasi quia. Beatae totam maxime doloremque.",
+                            ImageUrl = "http://localhost:5299/content/images/products/49.webp",
+                            InStock = true,
+                            IsDeleted = false,
+                            Name = "Arctic Shield Insulated Jacket",
+                            Price = 169.99m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 2,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
+                            ImageUrl = "http://localhost:5299/content/images/products/53.webp",
+                            InStock = false,
+                            IsDeleted = false,
+                            Name = "Raven Swift Snowboard",
+                            Price = 129.99m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 2,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
+                            ImageUrl = "http://localhost:5299/content/images/products/62.webp",
+                            InStock = false,
+                            IsDeleted = false,
+                            Name = "Shadow Black Snowboard",
+                            Price = 129.99m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 3,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit.Placeat amet ex aliquid quia repellat excepturi qui quos dignissimos necessitatibus dolore facilis obcaecati sunt suscipit sit esse harum ut, minima iusto.",
+                            ImageUrl = "http://localhost:5299/content/images/products/63.webp",
+                            InStock = true,
+                            IsDeleted = false,
+                            Name = "Razor Climbing Harness",
+                            Price = 79.99m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 3,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
+                            ImageUrl = "http://localhost:5299/content/images/products/74.webp",
+                            InStock = false,
+                            IsDeleted = false,
+                            Name = "Apex Climbing Harness",
+                            Price = 89.99m
+                        },
+                        new
+                        {
+                            Id = 11,
                             CategoryId = 3,
                             DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTimeOffset(new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, -5, 0, 0, 0)),
                             Description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi at veniam, inventore, architecto autem, rerum repellat perspiciatis voluptates pariatur expedita assumenda omnis aliquam quasi quia. Beatae totam maxime doloremque.",
-                            ImageUrl = "path/to/product3.jpg",
+                            ImageUrl = "http://localhost:5299/content/images/products/86.webp",
                             InStock = true,
                             IsDeleted = true,
-                            Name = "Product 3",
-                            Price = 5.99m
+                            Name = "ProVent Bike Helmet",
+                            Price = 169.99m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 3,
+                            DateCreation = new DateTime(2023, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum error? Saepe ratione, nam commodi repellendus ullam dolorem non dolor illum recusandae dignissimos quo itaque sapiente quidem, quasi adipisci qui?",
+                            ImageUrl = "http://localhost:5299/content/images/products/93.webp",
+                            InStock = false,
+                            IsDeleted = false,
+                            Name = "Summit Climbing Harness",
+                            Price = 129.99m
                         });
                 });
 
