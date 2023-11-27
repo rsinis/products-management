@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <aside id="sidebar">
+      <div class="sidebar-widget">
+          <button class="toggle-btn" type="button">
+              <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+          <div class="sidebar-logo">
+              <a routerLink="/home">Admin</a>
+          </div>
+      </div>
+      <ul class="sidebar-nav">
+          <li class="sidebar-item">
+              <a routerLink="/home" class="sidebar-link">
+                  <i class="fa-solid fa-house"></i>
+                  <span>Home</span>
+              </a>
+          </li>
+          <li class="sidebar-item">
+              <a routerLink="/trash" class="sidebar-link">
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Trash</span>
+              </a>
+          </li>
+      </ul>
+      <div class="sidebar-footer">
+          <a routerLink="/" class="sidebar-link">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Logout</span>
+          </a>
+      </div>
+  </aside>
+  
+  <div class="main">
+      <div class="content">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

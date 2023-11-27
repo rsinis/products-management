@@ -1,0 +1,14 @@
+<div class="container py-5 mb-3">
+    <div class="row">
+        <section class="col-12">
+            <div class="d-flex justify-content-between align-items-center pb-2">
+                <h2>Trash</h2>
+            </div>
+            <div class="row row-cols-3 g-3 mb-4">
+                <div class="col" *ngFor="let product of deletedProducts">
+                    <app-product-item [product]="product"></app-product-item>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 using Catalog.API.Endpoints;
 using Catalog.API.Extensions;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,16 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseDefaultOpenApi();
+
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Content")),
+    RequestPath = "/Content"
+});
+
+app.UseCors("CorsPolicy");
 
 app.MapGroup("/api/v1/catalog")
     .WithTags("Catalog API")
